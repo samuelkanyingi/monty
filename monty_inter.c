@@ -2,8 +2,12 @@
 #include <stdlib.h>
 #include "monty.h"
 
-
-void push (stack_t **stack, unsigned int lin_num)
+/**
+ * push - function to push element to stack
+ * @stack: pointer to a stack data structure
+ * @lin_num: current line number on file
+ */
+void push(stack_t **stack, unsigned int lin_num)
 {
 	char *args;
 	int value;
@@ -15,8 +19,8 @@ void push (stack_t **stack, unsigned int lin_num)
 		exit(EXIT_FAILURE);
 	}
 
-	arg = strtok(NULL, " \n");
-	if (arg == NULL)
+	args = strtok(NULL, " \n");
+	if (args == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push int\n", lin_num);
 		exit(EXIT_FAILURE);
@@ -38,14 +42,18 @@ void push (stack_t **stack, unsigned int lin_num)
 		(*stack)->prev = new_node;
 	}
 	*stack = new_node;
-	
 }
+/**
+ * pall - function to print elements of a stack
+ * @stack: pointer to a stack data structure
+ * @lin_num: current line number on file
+ */
 void pall(stack_t **stack, unsigned int lin_num)
 {
 	stack_t *current;
 	(void)lin_num;
 
-        current	= *stack;
+	current	= *stack;
 
 	while (current)
 	{
@@ -53,6 +61,11 @@ void pall(stack_t **stack, unsigned int lin_num)
 		current = current->next;
 	}
 }
+/**
+ * pint - function to print valu eat top of stack
+ * @stack: pointer to a stack data structure
+ * @lin_num: current line number on file
+ */
 void pint(stack_t **stack, unsigned int lin_num)
 {
 	if (!stack || !*stack)
