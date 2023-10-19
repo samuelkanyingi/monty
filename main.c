@@ -3,6 +3,32 @@
 #include <string.h>
 #include <unistd.h>
 #include "monty.h"
+#include <stdbool.h>
+
+const char *validInstructions[] = {
+	"push",
+	"pall",
+	"pop",
+	NULL
+};
+/**
+ * isValidInstruction - check if its a valid opcode
+ * @opcode: opcode to be checked
+ * Return: true if valid otherwise false
+ */
+bool isValidInstruction(const char *opcode)
+{
+	int i;
+
+	for (i = 0; validInstructions[i] != NULL; i++)
+	{
+		if (strcmp(opcode, validInstructions[i]) == 0)
+		{
+			return (true);
+		}
+	}
+	return (false);
+}
 /**
  * main - entry of program
  * @argc: number of command line arguments
@@ -23,7 +49,6 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "USAGE: monty file: %s\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
-
 	montyFile = argv[1];
 	file = fopen(montyFile, "r");
 if (file == NULL)
@@ -35,6 +60,12 @@ exit(EXIT_FAILURE);
 	{
 		lin_num++;
 		opcode = strtok(line, " \t\n");
+
+		if (opcode == NULL || !isValidInstruction(opcode))
+		{
+			fprintf(stderr, "L%u: unknown instruction %s\n", lin_num, opcode);
+			exit(EXIT_FAILURE);
+		}
 		if (opcode != NULL && strcmp(opcode, "push") == 0)
 		{
 			push(&stack, lin_num);
@@ -43,8 +74,6 @@ exit(EXIT_FAILURE);
 		{
 			pall(&stack, lin_num);
 		}
-
-
 	}
 	fclose(file);
 	return (0);
