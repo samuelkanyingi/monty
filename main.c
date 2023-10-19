@@ -9,6 +9,7 @@ const char *validInstructions[] = {
 	"push",
 	"pall",
 	"pop",
+	"pint",
 	NULL
 };
 /**
@@ -66,13 +67,12 @@ exit(EXIT_FAILURE);
 			fprintf(stderr, "L%u: unknown instruction %s\n", lin_num, opcode);
 			exit(EXIT_FAILURE);
 		}
-		if (opcode != NULL && strcmp(opcode, "push") == 0)
+		if (opcode != NULL)
 		{
-			push(&stack, lin_num);
-		}
-		else if (opcode != NULL && strcmp(opcode, "pall") == 0)
-		{
-			pall(&stack, lin_num);
+			(strcmp(opcode, "push") == 0) ? push(&stack, lin_num) :
+			(strcmp(opcode, "pall") == 0) ? pall(&stack, lin_num) :
+			(strcmp(opcode, "pint") == 0) ? pint(&stack, lin_num) :
+			(void)0;
 		}
 	}
 	fclose(file);
