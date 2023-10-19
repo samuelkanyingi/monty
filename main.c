@@ -72,6 +72,7 @@ exit(EXIT_FAILURE);
 			(strcmp(opcode, "push") == 0) ? push(&stack, lin_num) :
 			(strcmp(opcode, "pall") == 0) ? pall(&stack, lin_num) :
 			(strcmp(opcode, "pint") == 0) ? pint(&stack, lin_num) :
+			(strcmp(opcode, "pop") == 0) ? pop(&stack, lin_num) :
 			(void)0;
 		}
 	}
