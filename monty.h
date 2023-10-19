@@ -14,7 +14,7 @@ typedef struct stack_s
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
-}stack_t;
+} stack_t;
 
 /**
  * struct instruction_s - opcode and its function
@@ -27,14 +27,14 @@ typedef struct instruction_s
 {
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
-}instruction_t;
+} instruction_t;
 #include <string.h>
 void pall(stack_t **stack, unsigned int lin_num);
-void push (stack_t **stack, unsigned int lin_num);
+void push(stack_t **stack, unsigned int lin_num);
 void pint(stack_t **stack, unsigned int lin_num);
 void pop(stack_t **stack, unsigned int lin_num);
 void swap(stack_t **stack, unsigned int lin_num);
 void add(stack_t **stack, unsigned int lin_num);
-void nop(stack_t **stack, unsigned int lin_num)
-
+void nop(stack_t **stack, unsigned int lin_num);
+void processOpcode(stack_t **stack, const char *opcode, unsigned int lin_num);
 #endif
