@@ -54,7 +54,11 @@ void pall(stack_t **stack, unsigned int lin_num)
 	(void)lin_num;
 
 	current	= *stack;
-
+	
+	if (*stack == NULL)
+	{
+		return;
+	}
 	while (current)
 	{
 		printf("%d\n", current->n);
