@@ -45,43 +45,7 @@ exit(EXIT_FAILURE);
 		}
 
 
-		/*processOpcode(&stack, opcode, lin_num);*/
 	}
 	fclose(file);
 	return (0);
 }
-/**
- * processOpcode - process opcodes
- * @stack: pointer to a stack
- * @opcode: opcode to be processed
- * @lin_num: current line number
- */
-/*
-void processOpcode(stack_t **stack, const char *opcode, unsigned int lin_num)
-{
-	if (opcode != NULL && strcmp(opcode, "push") == 0)
-	{
-		push(&stack, lin_num);
-	}
-	else if (opcode != NULL && strcmp(opcode, "pall") == 0)
-	{
-		pall(&stack, lin_num);
-	}
-	else if (opcode != NULL && strcmp(opcode, "pint") == 0)
-	{
-		pint(&stack, lin_num);
-	}
-	else if (opcode != NULL && strcmp(opcode, "pop") == 0)
-	{
-		pop(&stack, lin_num);
-	}
-	else if (opcode != NULL && strcmp(opcode, "swap") == 0)
-	{
-		swap(&stack, lin_num);
-	}
-	else if (opcode != NULL && strcmp(opcode, "add") == 0)
-	{
-		add(&stack, lin_num);
-	}
-}
-*/
