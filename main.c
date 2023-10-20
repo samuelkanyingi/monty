@@ -43,6 +43,7 @@ exit(EXIT_FAILURE);
 			(strcmp(opcode, "swap") == 0) ? swap(&stack, lin_num) :
 			(strcmp(opcode, "add") == 0) ? add(&stack, lin_num) :
 			(strcmp(opcode, "nop") == 0) ? nop(&stack, lin_num) :
+			(strcmp(opcode, "sub") == 0) ? sub(&stack, lin_num) :
 			(void)0;
 		}
 	}

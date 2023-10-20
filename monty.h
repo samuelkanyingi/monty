@@ -37,5 +37,5 @@ void pop(stack_t **stack, unsigned int lin_num);
 void swap(stack_t **stack, unsigned int lin_num);
 void add(stack_t **stack, unsigned int lin_num);
 void nop(stack_t **stack, unsigned int lin_num);
-void processOpcode(stack_t **stack, const char *opcode, unsigned int lin_num);
+void sub(stack_t **stack, unsigned int lin_num);
 #endif

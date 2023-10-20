@@ -8,7 +8,7 @@
  */
 void add(stack_t **stack, unsigned int lin_num)
 {
-if (!stack || !*stack || !(*stack)->next)
+if (stack == NULL || !*stack || !(*stack)->next)
 {
 fprintf(stderr, "L%u: can't add, stack too short\n", lin_num);
 exit(EXIT_FAILURE);
